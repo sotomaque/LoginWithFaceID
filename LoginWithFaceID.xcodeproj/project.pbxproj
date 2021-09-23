@@ -19,6 +19,7 @@
 		340E685826FC316C00AB2F2B /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		340E685A26FC316E00AB2F2B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		340E685D26FC316E00AB2F2B /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		34E0EAFF26FD29E100572BCC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -51,6 +52,7 @@
 		340E685526FC316C00AB2F2B /* LoginWithFaceID */ = {
 			isa = PBXGroup;
 			children = (
+				34E0EAFF26FD29E100572BCC /* Info.plist */,
 				340E685626FC316C00AB2F2B /* LoginWithFaceIDApp.swift */,
 				340E685826FC316C00AB2F2B /* ContentView.swift */,
 				340E685A26FC316E00AB2F2B /* Assets.xcassets */,
@@ -272,6 +274,8 @@
 				DEVELOPMENT_TEAM = B6V7AZ7MR5;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = LoginWithFaceID/Info.plist;
+				INFOPLIST_KEY_NSFaceIDUsageDescription = "This will help make authentication more seemless";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -302,6 +306,8 @@
 				DEVELOPMENT_TEAM = B6V7AZ7MR5;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = LoginWithFaceID/Info.plist;
+				INFOPLIST_KEY_NSFaceIDUsageDescription = "This will help make authentication more seemless";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;

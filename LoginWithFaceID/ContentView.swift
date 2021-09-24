@@ -9,9 +9,31 @@ import SwiftUI
 import LocalAuthentication
 
 struct ContentView: View {
+    @AppStorage("status") var loggedIn = false
+
     var body: some View {
-        Home()
-            .navigationBarHidden(true)
+ 
+        
+        NavigationView {
+            if (loggedIn) {
+                VStack {
+                    Text("User LoggedIn...")
+                    
+                    Button {
+                        loggedIn = false
+                    } label: {
+                        Text("Log Out")
+                    }
+                }
+                .navigationTitle("Home")
+                .navigationBarHidden(false)
+                    
+            } else {
+                Home()
+                    .navigationBarHidden(true)
+            }
+        }
+       
     }
 }
 
@@ -108,7 +130,6 @@ struct Home: View {
                 
                 // Biometrics
                 if getBiometricsStatus() {
-                   
                     Button {
                         authenticateUser()
                     } label: {
@@ -134,8 +155,7 @@ struct Home: View {
                     .foregroundColor(Color("green"))
             }
             .padding(.top, 8)
-            .opacity(username != "" && password != "" ? 1 : 0)
-            .disabled(username != "" && password != "" ? false : true)
+       
             
             // Signup
             Spacer(minLength: 0)
@@ -161,15 +181,10 @@ struct Home: View {
     // Biometrics
     func getBiometricsStatus() -> Bool {
         let scanner = LAContext()
-    
-        if username == user && scanner.canEvaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, error: .none) {
-            print("hi")
-            return true
-        }
-        print("bye")
-        return false
+        return username == user && scanner.canEvaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, error: .none)
     }
     
+    // Authenticate via Biometrics
     func authenticateUser() {
         let scanner = LAContext()
         scanner.evaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, localizedReason: "To Unlock \(username)") { (status, err) in
